@@ -185,3 +185,74 @@ export http_proxy="http://guest.abc.com:8080/"
 23. Command for running a select query outside of container
 
     docker exec -it <container_id> mysql -uroot -D <database_name> -e "select * from <table_name>"
+    
+    
+    == nginx tips ==
+
+1. To install nginx on your local OS dev box follow steps as mentioned in link
+
+   "https://nginx.org/en/linux_packages.html"
+
+2. nginx.config will be available in one of the locations after installation
+
+    /usr/local/nginx/conf, /etc/nginx, or /usr/local/etc/nginx/.
+    
+    
+    
+    == Secure Copy Tips ==
+
+Example syntax for Secure Copy (scp)
+
+What is Secure Copy?
+
+scp allows files to be copied to, from, or between different hosts. It uses ssh for data transfer and provides the same authentication and same level of security as ssh.
+
+Examples
+
+1. Copy the file "foobar.txt" from a remote host to the local host
+
+      $ scp your_username@remotehost.com:foobar.txt /some/local/directory
+      
+2. Copy the file "foobar.txt" from the local host to a remote host
+
+      $ scp foobar.txt your_username@remotehost.com:/some/remote/directory
+
+3. Copy the directory "foo" from the local host to a remote host's directory "bar"
+
+      $ scp -r foo your_username@remotehost.com:/some/remote/directory/bar
+
+4. Copy the file "foobar.txt" from remote host "rh1.com" to remote host "rh2.com"
+
+      $ scp your_username@rh1.com:/some/remote/directory/foobar.txt \
+        your_username@rh2.com:/some/remote/directory/
+
+5. Copying the files "foo.txt" and "bar.txt" from the local host to your home directory on the remote host
+
+      $ scp foo.txt bar.txt your_username@remotehost.com:~
+
+6. Copy the file "foobar.txt" from the local host to a remote host using port 2264
+
+      $ scp -P 2264 foobar.txt your_username@remotehost.com:/some/remote/directory
+
+7. Copy multiple files from the remote host to your current directory on the local host
+
+   $ scp your_username@remotehost.com:/some/remote/directory/\{a,b,c\} .
+   $ scp your_username@remotehost.com:~/\{foo.txt,bar.txt\} .
+
+8. scp Performance
+
+   A. By default scp uses the Triple-DES cipher to encrypt the data being sent. Using the Blowfish cipher has been shown to increase speed. This can be done by using option -c blowfish in the command line.
+
+         $ scp -c blowfish some_file your_username@remotehost.com:~
+
+   B. It is often suggested that the -C option for compression should also be used to increase speed. The effect of compression, however, will only significantly increase speed if your connection is very slow. Otherwise it may just be    adding   extra burden to the CPU. An example of using blowfish and compression:
+
+         $ scp -c blowfish -C local_file your_username@remotehost.com:~
+
+
+9. To generate RSA public & private keys use following command 
+         
+         $ssh-keygen -t rsa
+
+    
+    
