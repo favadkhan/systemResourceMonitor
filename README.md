@@ -185,7 +185,14 @@ export http_proxy="http://guest.abc.com:8080/"
 23. Command for running a select query outside of container
 
     docker exec -it <container_id> mysql -uroot -D <database_name> -e "select * from <table_name>"
+   
+   24. How to install any package in ubuntu docker container
+   
+   apt-get -qq update
+   
+    Ex1: apt-get -qq -y install python
     
+    Ex2: apt-get -qq -y install nginx
     
     == nginx tips ==
 
