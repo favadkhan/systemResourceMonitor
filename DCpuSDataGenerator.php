@@ -1,7 +1,7 @@
 <?php
-$servername = "172.17.91.165";
+$servername = "localhost";
 $username = "monitoring";
-$password = "Hitachi1";
+$password = "Request1";
 
 $dbname = "charts";
 // Create connection
