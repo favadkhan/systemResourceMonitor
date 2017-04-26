@@ -193,8 +193,13 @@ export http_proxy="http://guest.abc.com:8080/"
     Ex1: apt-get -qq -y install python
     
     Ex2: apt-get -qq -y install nginx
-    
-    == nginx tips ==
+    
+24. Command to execute route command on a container when you encounter error "SIOCADDRT: Operation not permitted"
+
+    docker exec --privileged container ip route add default via 172.17.0.14 dev eth0
+
+
+== nginx tips ==
 
 1. To install nginx on your local OS dev box follow steps as mentioned in link
 
@@ -203,6 +208,8 @@ export http_proxy="http://guest.abc.com:8080/"
 2. nginx.config will be available in one of the locations after installation
 
     /usr/local/nginx/conf, /etc/nginx, or /usr/local/etc/nginx/.
+    
+
     
     
     
